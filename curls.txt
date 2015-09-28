@@ -1,0 +1,55 @@
+REGISTER
+========
+curl -i \
+-H "Content-Type: application/json" \
+-X POST \
+-d '{"userName": "admin", "password": "password"}' \
+http://localhost:8888/register
+
+LOGIN (Will Set-Cookie that must be used in subsequent requests for user auth)
+========
+curl -i \
+-H "Content-Type: application/json" \
+-X POST \
+-d '{"userName": "admin", "password": "password"}' \
+http://localhost:8888/login
+
+LOGOUT
+========
+curl -i \
+-H "Content-Type: application/json" \
+-H "Cookie: id=9ce252b3cb4839f8b145840f6ed13f4a5d03ac02d2f832e5923113edc96198a2" \
+http://localhost:8888/logout
+
+LIST CONFIGURATIONS
+===================
+curl -i \
+-H "Content-Type: application/json" \
+-H "Cookie: id=COOKIE" \
+http://localhost:8888/configuration
+
+ADD CONFIGURATION
+=================
+curl -i \
+-H "Content-Type: application/json" \
+-H "Cookie: id=COOKIE" \
+-X POST \
+-d '{"name": "Test1", "hostname": "2.2.2.2", "port": "2222"}' \
+http://localhost:8888/configuration
+
+UPDATE CONFIGURATION
+====================
+curl -i \
+-H "Content-Type: application/json" \
+-H "Cookie: id=COOKIE" \
+-X PUT \
+-d '{"name": "Test1", "hostname": "2.2.2.2", "port": "2222"}' \
+http://localhost:8888/configuration/ID
+
+DELETE CONFIGURATION
+====================
+curl -i \
+-H "Content-Type: application/json" \
+-H "Cookie: id=COOKIE" \
+-X DELETE \
+http://localhost:8888/configuration/ID

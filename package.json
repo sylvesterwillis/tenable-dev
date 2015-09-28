@@ -1,0 +1,7 @@
+{
+    "name": "inven-manage",
+    "main": "server.js",
+    "dependencies": {
+        "mongodb": "2.0.43"
+    }
+}
