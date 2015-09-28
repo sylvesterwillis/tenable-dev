@@ -65,6 +65,9 @@ mongoConnection.connectToServer(function (err, db) {
 					}
 				});
 				break;
+            default:
+                res.writeHead(404);
+                res.end('Hello person or robot.\n');
 		}
 	}
 
